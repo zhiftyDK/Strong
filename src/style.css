@@ -1,0 +1,25 @@
+.btn-main {
+    color: white !important;
+}
+
+.btn-main:hover {
+    color: rgb(167, 167, 167) !important;
+}
+
+.color-main {
+    color: white !important;
+}
+
+.bg-main {
+    background-color: white !important;
+}
+
+.bg-lightdark {
+    background-color: #2d3032 !important;
+}
+
+.fade-in { animation: fadeIn 2s; }
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
