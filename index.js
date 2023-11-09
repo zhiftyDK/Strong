@@ -26,7 +26,7 @@ app.post("/register", (req, res) => {
     const hashedPass = bcrypt.hashSync(req.body.password, 10);
     database.find({email: req.body.email}, (err, data) => {
         if(data.length == 0) {
-            database.insert({email: req.body.email, password: hashedPass, trainingprograms: []});
+            database.insert({name: req.body.name, email: req.body.email, password: hashedPass, trainingprograms: []});
             res.send({error: false, message: "User registered successfully!"});
         } else {
             res.send({error: true, message: "User already exists!"});
@@ -39,12 +39,12 @@ app.post("/login", (req, res) => {
         if(err) {
             return res.send({error: true, message: "An error occured!"});
         }
-        if(data.length == 0) {
+        if(data == null) {
             return res.send({error: true, message: "User does not exist!"});
         }
         bcrypt.compare(req.body.password, data.password, (err, result) => {
             if(result) {
-                return res.send({error: false, jsonwebtoken: jwt.sign({email: data.email}, process.env.JWT_SECRET, {expiresIn: "24h"})});
+                return res.send({error: false, jsonwebtoken: jwt.sign({email: data.email, name: data.name}, process.env.JWT_SECRET, {expiresIn: "24h"})});
             } else {
                 return res.send({error: true, message: "Incorrect email or password!"});
             }
@@ -71,7 +71,7 @@ app.post("/trainingprogram/create", verifyJwt, (req, res) => {
         purpose: req.body.purpose,
         amount: req.body.amount,
         exercises: req.body.exercises,
-        author: res.locals.decoded.email,
+        author: res.locals.decoded.name,
         id: crypto.randomUUID()
     }
     try {
