@@ -1,0 +1,76 @@
+{
+    "exercises": [
+        {
+            "name": "Dumbbell squat",
+            "imageLink": "https://fitnessprogramer.com/wp-content/uploads/2023/09/Dumbbell-Squat.gif"
+        },
+        {
+            "name": "Power lunge",
+            "imageLink": "https://fitnessprogramer.com/wp-content/uploads/2023/09/power-lunge.gif"
+        },
+        {
+            "name": "Dumbbell deadlift",
+            "imageLink": "https://fitnessprogramer.com/wp-content/uploads/2023/09/dumbbell-deadlifts.gif"
+        },
+        {
+            "name": "Standing leg circles",
+            "imageLink": "https://fitnessprogramer.com/wp-content/uploads/2023/10/Standing-Leg-Circles.gif"
+        },
+        {
+            "name": "Dumbbell curl",
+            "imageLink": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Curl.gif"
+        },
+        {
+            "name": "Dumbbell preacher curl",
+            "imageLink": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Preacher-Curl.gif"
+        },
+        {
+            "name": "Hammer curl",
+            "imageLink": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Hammer-Curl.gif"
+        },
+        {
+            "name": "Dumbbell shoulder press",
+            "imageLink": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Shoulder-Press.gif"
+        },
+        {
+            "name": "Cable lateral raise",
+            "imageLink": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Cable-Lateral-Raise.gif"
+        },
+        {
+            "name": "Bench press",
+            "imageLink": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Bench-Press.gif"
+        },
+        {
+            "name": "Low cable crossover",
+            "imageLink": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Low-Cable-Crossover.gif"
+        },
+        {
+            "name": "High cable crossover",
+            "imageLink": "https://fitnessprogramer.com/wp-content/uploads/2021/02/High-Cable-Crossover.gif"
+        },
+        {
+            "name": "Pull-up",
+            "imageLink": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Pull-up.gif"
+        },
+        {
+            "name": "Lat pulldown",
+            "imageLink": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Lat-Pulldown.gif"
+        },
+        {
+            "name": "Seated cable row",
+            "imageLink": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Seated-Cable-Row.gif"
+        },
+        {
+            "name": "Lever t-bar row",
+            "imageLink": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Lever-T-bar-Row.gif"
+        },
+        {
+            "name": "Push down",
+            "imageLink": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Pushdown.gif"
+        },
+        {
+            "name": "Triceps dips",
+            "imageLink": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Triceps-Dips.gif"
+        }
+    ]
+}

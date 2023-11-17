@@ -70,6 +70,26 @@ if(document.getElementById("registerbtn")) {
     });
 }
 
+if(document.getElementById("deletebtn")) {
+    document.getElementById("deletebtn").addEventListener("click", () => {
+        console.log("Adding feature soon!");
+        fetch("http://localhost:3000/deleteuser", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                jsonwebtoken: localStorage.getItem("jsonwebtoken")
+            })
+        }).then(response => response.json())
+        .then(data => {
+            if(data.error) {
+                console.log(data.message);
+            }
+            localStorage.removeItem("jsonwebtoken");
+            location.assign("/index.html");
+        });
+    });
+}
+
 function parseJwt(token) {
     var base64Url = token.split('.')[1];
     var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -81,7 +101,7 @@ function parseJwt(token) {
 
 function logout() {
     localStorage.removeItem("jsonwebtoken");
-    location.reload();
+    location.assign("/login.html");
 }
 
 if(document.getElementById("account")) {
@@ -102,5 +122,22 @@ if(document.getElementById("account")) {
         `;
         a.classList.add("dropdown");
         document.getElementById("account").appendChild(a);
+    }
+}
+
+window.addEventListener("load", () => {
+    const current = new Date();
+    if(Number(current.getTime().toString().substring(0, 10)) > parseJwt(localStorage.getItem("jsonwebtoken")).exp) {
+        localStorage.removeItem("jsonwebtoken");
+        location.assign("/login.html");
+    }
+});
+
+const page = location.href.split("/")[location.href.split("/").length - 1];
+if(page == "account.html") {
+    if(localStorage.getItem("jsonwebtoken")) {
+        const payload = parseJwt(localStorage.getItem("jsonwebtoken"));
+        document.getElementById("name").value = payload.name;
+        document.getElementById("email").value = payload.email;
     }
 }

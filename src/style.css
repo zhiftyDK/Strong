@@ -6,6 +6,14 @@
     color: rgb(167, 167, 167) !important;
 }
 
+.btn-bg-main {
+    background-color: #2d3032 !important;
+}
+
+.btn-bg-main:hover {
+    background-color: rgb(167, 167, 167) !important;
+}
+
 .color-main {
     color: white !important;
 }
@@ -16,6 +24,10 @@
 
 .bg-lightdark {
     background-color: #2d3032 !important;
+}
+
+.hover-mouse:hover {
+    cursor: pointer;
 }
 
 .fade-in { animation: fadeIn 2s; }

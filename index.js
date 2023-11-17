@@ -52,12 +52,32 @@ app.post("/login", (req, res) => {
     });
 });
 
+app.post("/deleteuser", verifyJwt, (req, res) => {
+    database.remove({email: res.locals.decoded.email}, {}, (err, numRemoved) => {
+        if(err) {
+            return res.send({error: true, message: "An error occured!"});
+        }
+        res.send({error: false, message: "User has been deleted!"});
+    });
+});
+
+app.post("/trainingprogram/getprivate", verifyJwt, (req, res) => {
+    database.findOne({email: res.locals.decoded.email}, (err, data) => {
+        if(err) {
+            return res.send({error: true, message: "An error occured!"});
+        }
+        if(data == null) {
+            return res.send({error: true, message: "User does not exist!"});
+        }
+        res.send({error: false, trainingprograms: data.trainingprograms});
+    });
+});
+
 app.get("/trainingprogram/getall", (req, res) => {
     let allTrainingPrograms = [];
     database.find({}, (err, data) => {
         data.forEach(user => {
             user.trainingprograms.forEach(trainingprogram => {
-                trainingprogram.author = user.email;
                 allTrainingPrograms.push(trainingprogram);
             });
         });
@@ -69,7 +89,6 @@ app.post("/trainingprogram/create", verifyJwt, (req, res) => {
     const newTrainingProgram = {
         name: req.body.name,
         purpose: req.body.purpose,
-        amount: req.body.amount,
         exercises: req.body.exercises,
         author: res.locals.decoded.name,
         id: crypto.randomUUID()
